@@ -5,228 +5,187 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Piyush Gupta Birthday Invitation</title>
 
-  <!-- Google Fonts for Premium Look -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts for a Premium Look -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+    /* Custom font families */
+    .font-great-vibes { font-family: 'Great Vibes', cursive; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+    .font-inter { font-family: 'Inter', sans-serif; }
+
+    /* Custom scrollbar styling for a cleaner look */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-thumb {
+      background: #c39a3f;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    /* Keyframe animations for a smooth experience */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes slideDown { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    
+    @keyframes pulse-shadow {
+        from { box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        to { box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+    }
+
+    @keyframes multi-color {
+        0%   { color: #ff0000; }
+        14%  { color: #ffa500; }
+        28%  { color: #ffff00; }
+        42%  { color: #008000; }
+        56%  { color: #0000ff; }
+        70%  { color: #4b0082; }
+        84%  { color: #ee82ee; }
+        100% { color: #ff0000; }
+    }
+
+    @keyframes card-glow {
+        0% { box-shadow: 0 0 15px 0 #fff3b0; }
+        50% { box-shadow: 0 0 25px 5px #ffd460; }
+        100% { box-shadow: 0 0 15px 0 #fff3b0; }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: -200% 50%;
+      }
+    }
+
+    /* Apply animations to elements */
+    .animate-fade-in { animation: fadeIn 1.5s ease-in-out; }
+    .animate-zoom-in { animation: zoomIn 1.3s ease-in-out; }
+    .animate-slide-down { animation: slideDown 1s ease-in-out; }
+
+    /* Body background is now light gray */
     body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #f6f0e4, #e9f5f3);
-      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f0f0, #ffffff);
     }
-
+    
+    /* Main card color is now light yellow and has a pulsing animation */
     .card {
-      width: 90%;
-      max-width: 450px;
-      background: #d7d40ae3;
-      border-radius: 20px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.2);
-      text-align: center;
-      padding: 30px 25px;
-      border: 4px solid #d4af37; /* Golden border */
-      background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png');
-      background-size: cover;
-      animation: fadeIn 1s ease-in-out;
       position: relative;
-    }
-
-    .photo-frame {
-      width: 170px;
-      height: 170px;
-      border: 5px solid #d4af37;
-      border-radius: 50%;
-      margin: 0 auto 20px;
+      background: rgba(255, 245, 157, 0.95);
+      background-image: linear-gradient(
+        270deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      background-size: 200% 100%;
       overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.5s ease;
-      animation: zoomIn 1.3s ease-in-out;
+      animation: shimmer 5s infinite linear;
     }
 
-    .photo-frame:hover {
-      transform: scale(1.1) rotate(3deg);
+    /* A new style for the name with a thin golden border directly on the font */
+    .name-border {
+        -webkit-text-stroke: 1px #8B4513; /* Dark golden brown border on font */
+        padding: 5px 0; /* Add padding to prevent text from touching the border on wrap */
     }
 
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .highlight-55th {
+        -webkit-text-stroke: 1px #8B4513; /* Dark golden brown border on font */
+        padding: 5px 0;
+        font-family: 'Playfair Display', serif; /* Using a stylish serif font for elegance */
+        font-weight: 700;
+        color: #af2a83; /* A rich golden color to make it pop */
+        font-size: 2rem; /* A larger size to make it stand out */
+        transition: transform 0.3s ease; /* Add transition for hover effect */
+    }
+    @media (min-width: 768px) {
+      .highlight-55th {
+        font-size: 2.3rem; /* Even larger on tablets and desktops */
+      }
     }
 
-    .subtitle {
-      font-size: 18px;
-      font-weight: 300;
-      font-family: 'Poppins', sans-serif;
-      color: #444;
-      margin-bottom: 8px;
-      letter-spacing: 0.5px;
-    }
-
-    .name {
-      font-family: 'Great Vibes', cursive;
-      font-size: 42px;
-      font-weight: 400;
-      color: #2b4c40;
-      margin: 8px 0 12px;
-      animation: slideDown 1s ease-in-out;
-    }
-
-    .details {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      margin: 10px 0;
-      color: #333;
-    }
-
-    .venue {
-      margin-top: 15px;
-      font-size: 16px;
-      color: #555;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .venue a {
-      color: #1e6091;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    .venue a:hover {
-      color: #144d75;
-      text-decoration: underline;
-    }
-
-    .countdown {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #2d6a4f;
-      font-family: 'Poppins', sans-serif;
-      animation: fadeInUp 1.5s ease-in-out;
-    }
-
-    .btn {
-      margin-top: 20px;
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: 600;
-      background: linear-gradient(135deg, #d4af37, #b08d2d);
-      color: #fff;
-      border-radius: 25px;
-      text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    /* Popup */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
-
-    .popup img {
-      max-width: 90%;
-      max-height: 80%;
-      border: 5px solid #fff;
-      border-radius: 10px;
-    }
-
-    .popup span {
-      position: absolute;
-      top: 20px;
-      right: 40px;
-      font-size: 40px;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    /* Animations */
-    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-    @keyframes zoomIn { from {transform: scale(0);} to {transform: scale(1);} }
-    @keyframes slideDown { from {transform: translateY(-40px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
-    @keyframes fadeInUp { from {transform: translateY(30px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
   </style>
 </head>
-<body>
 
-  <div class="card">
-    <div class="photo-frame" onclick="openPopup()">
-      <img src="2.jpg" alt="Photo">
+<body class="flex justify-center items-center min-h-screen p-4 font-inter text-gray-900">
+
+  <!-- Main Card Container -->
+  <div class="card w-full max-w-sm lg:max-w-xl mx-auto rounded-3xl shadow-2xl p-6 md:p-10 border border-solid border-gray-300 relative animate-fade-in text-center">
+    
+    <!-- Photo Frame and Image -->
+    <div class="photo-frame w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-amber-500 mx-auto mb-6 md:mb-8 overflow-hidden transform hover:scale-105 transition-transform duration-500 cursor-pointer animate-zoom-in" onclick="openPopup()">
+      <img src="https://placehold.co/400x400/fff3b0/444444?text=P+G" alt="Photo" class="w-full h-full object-cover">
     </div>
 
-    <div class="subtitle">You are cordially invited to celebrate the 55th birthday of</div>
-    <div class="name">Piyush Gupta</div>
-    <div class="details">on <b>August 30, 2025</b> at <b>7:30 pm</b></div>
+    <!-- Invitation Text -->
+    <div class="subtitle text-sm md:text-base tracking-wider text-gray-700 font-light mb-2">You are cordially invited to celebrate the <span class="highlight-55th" style="animation: multi-color 5s infinite;">55th</span> birthday of</div>
+    <div class="name-border">
+      <div class="name font-great-vibes text-5xl md:text-6xl text-gray-900 font-normal mt-2 mb-4 animate-slide-down" style="animation: multi-color 5s infinite;">Piyush Gupta</div>
+    </div>
+    <div class="details font-playfair text-base md:text-xl text-gray-800 mt-4">on <b class="text-amber-500">August 30, 2025</b> at <b class="text-amber-500">7:30 pm</b></div>
 
-    <div class="venue">
-      Venue:  
-      <a href="https://share.google/GbwGxqdmZsRAWVXTn" target="_blank">
+    <!-- Venue Details -->
+    <div class="venue mt-6 text-sm md:text-base text-gray-700">
+      <span class="font-poppins">Venue:</span>
+      <a href="https://share.google/GbwGxqdmZsRAWVXTn" target="_blank" class="text-amber-600 hover:text-amber-800 transition-colors duration-300 font-semibold underline">
         Daawat Sapphire Star, near Chappan Dukan
       </a>
     </div>
 
-    <div class="countdown" id="countdown">Loading countdown...</div>
+    <!-- Countdown Timer -->
+    <div class="countdown mt-6 font-poppins text-lg md:text-xl font-semibold text-gray-800 animate-fade-in" id="countdown">Loading countdown...</div>
 
-    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Birthday+Celebration+of+Piyush+Gupta&dates=20250830T190000/20250830T213000&details=Join+us+for+a+special+birthday+celebration!&location=Dawat+Restaurant,+near+Chappan+Dukan" 
-       target="_blank" class="btn">
-       Add to Calendar
+    <!-- "Add to Calendar" Button -->
+    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Birthday+Celebration+of+Piyush+Gupta&dates=20250830T190000/20250830T213000&details=Join+us+for+a+special+birthday+celebration!&location=Dawat+Restaurant,+near+Chappan+Dukan"
+       target="_blank" class="btn inline-block mt-8 px-6 py-3 text-sm md:text-base font-bold text-gray-900 bg-amber-400 rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
+      Add to Calendar
     </a>
   </div>
 
-  <!-- Popup -->
-  <div class="popup" id="popup">
-    <span onclick="closePopup()">&times;</span>
-    <img src="2.jpg" alt="Popup Photo">
+  <!-- Full-screen Popup for the photo -->
+  <div class="popup fixed inset-0 flex justify-center items-center bg-black bg-opacity-80 z-50 hidden" id="popup" onclick="closePopup()">
+    <span class="absolute top-8 right-8 text-4xl text-gray-300 cursor-pointer">&times;</span>
+    <img src="https://placehold.co/800x800/fff3b0/444444?text=P+G" alt="Popup Photo" class="max-w-full max-h-4/5 rounded-lg border-4 border-gray-300">
   </div>
 
   <script>
-    // Popup
+    // JavaScript for the photo popup functionality
     function openPopup() {
-      document.getElementById("popup").style.display = "flex";
+      document.getElementById("popup").classList.remove('hidden');
     }
     function closePopup() {
-      document.getElementById("popup").style.display = "none";
+      document.getElementById("popup").classList.add('hidden');
     }
 
-    // Countdown
+    // JavaScript for the countdown timer
     const eventDate = new Date("August 30, 2025 19:30:00").getTime();
     const countdownEl = document.getElementById("countdown");
 
-    setInterval(() => {
+    const updateCountdown = setInterval(() => {
       const now = new Date().getTime();
       const distance = eventDate - now;
 
       if (distance < 0) {
-        countdownEl.innerHTML = "🎉 The event has started!";
+        clearInterval(updateCountdown);
+        countdownEl.innerHTML = "<span class='text-amber-500'>🎉 The party has started!</span>";
         return;
       }
 
-      const days = Math.floor(distance / (1000*60*60*24));
-      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-      const seconds = Math.floor((distance % (1000*60)) / 1000);
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdownEl.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left`;
+      countdownEl.innerHTML = `⏳ <b class="text-amber-500">${days}</b>d <b class="text-amber-500">${hours}</b>h <b class="text-amber-500">${minutes}</b>m <b class="text-amber-500">${seconds}</b>s left`;
     }, 1000);
   </script>
 
 </body>
 </html>
-
